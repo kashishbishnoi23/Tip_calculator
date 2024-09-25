@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="/src/output.css">
+  
+  <title>Tip calculator app</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+  </style>
+
+</head>
+
+<body class="bg-light_green" style="font-family:Space Mono, monospace;">
+
+  <div class="flex flex-col w-[50vw] max-[450px]:w-[80vw] max-[280px]:w-[95vw] rounded-md h-[70vh] max-lg:h-[80vh] max-[850px]:h-fit mx-auto mt-20 max-lg:mt-6 gap-10">
+
+  <div class="flex flex-col h-[10%]">
+  <h1 class="text-lg text-center font-semibold tracking-custom text-dark_green">SPLI</h1>
+  <h1 class="text-lg text-center font-semibold tracking-custom text-dark_green">TTER</h1>
+  </div>
+  <div class="w-full h-full gap-7 rounded-xl max-[850px]:flex-col flex justify-between p-7 max-[280px]:p-4 bg-white ">
+
+    <!-- Left: -->
+    <div class="left w-[50%] text-xs max-[850px]:w-full  flex flex-col justify-between ">
+      <!-- Bill: -->
+
+
+      <div class="flex flex-col gap-3">
+      <h3 class="text-xs text-text_green font-semibold" >Bill</h3>
+
+      <div class="bg-input_green flex justify-between items-center box-border max-h-10 px-2 border-2 rounded-md border-input_green hover:border-clicked_green">
+
+        <svg   xmlns="http://www.w3.org/2000/svg" width="10" height="17"><path fill="#9EBBBD" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg>
+
+      <input class="bg-input_green bill_input w-full inputs outline-none text-lg text-end font-semibold text-text_green" type="number" placeholder="0" >
+
+      
+      </div>
+      </div>
+
+
+
+      <!-- Select Tip %: -->
+      <div class="flex flex-col gap-3 w-full">
+      <h3 class="text-xs font-semibold text-text_green">Select Tip %</h3>
+      <div class="w-full  flex  gap-2 max-[850px]:gap-4 max-lg:flex-wrap">
+        <div class="flex flex-col gap-3 max-lg:flex-wrap">
+          <button class="tip_btn py-1 px-5 bg-dark_green text-white w-full text-lg font-semibold rounded-md hover:bg-hover_green hover:text-dark_green">5%</button>
+          <button class="tip_btn py-1 px-5 bg-dark_green text-white w-full text-lg font-semibold rounded-md hover:bg-hover_green hover:text-dark_green" >25%</button>
+        </div>
+        <div class="flex flex-col gap-3">
+           <button class="tip_btn py-1 px-5 bg-dark_green text-white text-lg font-semibold rounded-md hover:bg-hover_green hover:text-dark_green">10%</button>
+           <button class="tip_btn py-1 px-5 bg-dark_green text-white text-lg font-semibold rounded-md hover:bg-hover_green hover:text-dark_green" >50%</button>
+        </div>
+        <div class="flex flex-col gap-3 custom_parent max-lg:flex-row max-[850px]:flex-col max-sm:flex-row ">
+          <button class="tip_btn py-1 px-5 bg-dark_green text-white text-lg font-semibold rounded-md hover:bg-hover_green hover:text-dark_green">15%</button>
+          
+          <button class="tip_btn custom_btn py-1 px-2 bg-input_green text-text_green text-lg font-semibold rounded-md hover:bg-hover_green hover:text-dark_green" >Custom</button>
+          <input class="hidden custom_input inputs  bg-input_green py-0.5 px-2 max-w-20 font-semibold text-dark_green text-end text-lg outline-none border-2 border-clicked_green rounded-md caret-dark_green" type="number">
+         
+        </div>
+
+
+
+      </div>
+      </div>
+    
+
+      <!-- Number of people:  -->
+    <div class="flex flex-col gap-3  mt-2">
+      
+      <div class="flex justify-between">
+      <h3 class="text-xs font-semibold text-text_green">Number of people</h3>
+      <div class="text-red-600 cant_be_zero hidden">Can't be zero</div>
+
+      </div>
+
+      
+      <div class="bg-input_green flex justify-between items-center max-h-10 px-2 border-2 rounded-md border-input_green hover:border-clicked_green ">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13"><path fill="#9EBBBD" d="M9.573 7.729c.406 0 .784.07 1.126.209.342.14.639.33.881.569.232.227.438.503.614.82a5.1 5.1 0 01.407.949c.097.312.178.654.242 1.016.062.359.105.699.126 1.011.02.307.031.624.031.945 0 .836-.259 1.512-.768 2.01-.504.492-1.17.742-1.98.742H2.748c-.81 0-1.477-.25-1.98-.742C.259 14.76 0 14.084 0 13.248c0-.322.01-.64.032-.945.02-.312.063-.652.126-1.01.063-.363.144-.705.242-1.017.1-.323.238-.643.407-.948.176-.318.382-.594.613-.821.243-.238.54-.43.882-.57.342-.138.72-.208 1.125-.208.16 0 .313.067.61.265.183.123.397.264.636.421.204.134.48.259.822.372.333.11.671.167 1.005.167a3.19 3.19 0 001.006-.167c.341-.113.618-.238.822-.372l.636-.42c.296-.2.45-.266.61-.266zM6.598 0C7.63 0 8.522.38 9.252 1.129s1.1 1.666 1.1 2.724c0 1.06-.37 1.976-1.1 2.725-.73.75-1.623 1.13-2.654 1.13-1.03 0-1.924-.38-2.653-1.13-.73-.749-1.1-1.666-1.1-2.725 0-1.058.37-1.975 1.1-2.724C4.675.379 5.567 0 6.598 0z"/></svg>
+
+        
+
+      <input class="people_input inputs w-full bg-input_green outline-none text-lg text-text_green font-semibold text-end" type="number" placeholder="0">
+
+      
+      </div>
+    </div>
+
+    </div>
+
+    <!-- Right: -->
+    <div class="right w-[50%] max-[850px]:w-full bg-dark_green px-6 pt-10 pb-7 rounded-md flex flex-col justify-between">
+
+      <div class="flex flex-col gap-10">
+      <!-- Tip Amount :  -->
+       <div class="flex justify-between">
+        <div class="flex flex-col">
+          <div class="text-white text-xs">Tip Amount </div> 
+          <div class="text-xs text-text_green font-semibold">/person </div>
+        </div>
+        <!-- Amount -->
+        <div class="tip_amount text-3xl max-lg:text-2xl text-clicked_green font-bold">$0.00</div>
+       </div>
+
+       <!-- Total -->
+
+       <div class="flex justify-between">
+        <div class="flex flex-col">
+          <div class="text-white text-sm">Total</div> 
+          <div class="text-xs text-text_green font-semibold">/person </div>
+        </div>
+        <!-- Amount -->
+        <div class="bill_amount text-3xl max-lg:text-2xl text-clicked_green font-bold">$0.00</div>
+       </div>
+
+       </div>
+
+
+       <!-- Reset Button: -->
+
+       <button class="reset_btn text-dark_green bg-clicked_green max-[850px]:mt-2 font-bold text-xs p-2 hover:bg-hover_green">RESET</button>
+    </div>
+
+  </div>
+  </div>
+
+  <script>
+
+  
+   let custom_input_value = 0;
+   let custom_input = document.querySelector(".custom_input");
+   let tip_percentage = 0;
+   let tip_amount = document.querySelector(".tip_amount");
+   let bill_amount = document.querySelector(".bill_amount");
+   
+   let custom_tip = 0;
+
+   
+    // Handling custom button:
+    let custom_btn = document.querySelector(".custom_btn");
+
+    custom_btn.addEventListener("click",()=>{
+
+      custom_btn.classList.add("hidden");
+      custom_input.classList.remove("hidden");
+
+    })
+
+    custom_input.addEventListener('input', ()=>{
+         custom_tip = custom_input.value;
+    })
+    
+
+    // Handling tip buttons:
+
+    let button_array = Array.from(document.querySelectorAll(".tip_btn"));
+    let previously_clicked = 0;
+
+    let tip_changed = false;
+    button_array.forEach((item)=>{
+      item.addEventListener("click", (event)=>{
+
+
+        if (previously_clicked && previously_clicked.classList.contains("custom_btn")){
+            custom_input.classList.add("hidden");
+            custom_btn.classList.remove("hidden");
+
+            
+        } else  if (previously_clicked){
+          // Remove styles from the previously clicked button
+
+          previously_clicked.classList.remove("bg-clicked_green");
+          previously_clicked.classList.remove("text-dark_green");
+          
+          previously_clicked.classList.add("text-white");
+          previously_clicked.classList.add("bg-dark_green");
+
+        }
+        previously_clicked = event.target;
+        event.target.classList.remove("bg-dark_green");
+        event.target.classList.remove("text-white");
+
+        event.target.classList.add("bg-clicked_green");
+        event.target.classList.add("text-dark_green");
+
+
+        tip_percentage = previously_clicked.innerText
+        if (bill && people){
+          calculate_and_display();
+        }
+        
+        
+    
+      
+
+        // console.log("previosly_clicked" , previously_clicked);
+
+
+
+        
+
+      })
+
+
+    })
+
+    // Handling reset button:
+
+    let reset_btn = document.querySelector(".reset_btn");
+    reset_btn.addEventListener("click", ()=>{
+      
+      bill_input.value = "";
+      people_input.value = "";
+      bill = 0;
+      tip = 0;
+      people = 0;
+      custom_tip = 0;
+      custom_input.value = "";
+
+
+      if (previously_clicked && previously_clicked.classList.contains("custom_btn")){
+        custom_input.classList.add("hidden");
+        custom_btn.classList.remove("hidden");
+      } else if (previously_clicked){
+      previously_clicked.classList.remove("bg-clicked_green");
+      previously_clicked.classList.remove("text-dark_green");
+      previously_clicked.classList.add("text-white");
+      previously_clicked.classList.add("bg-dark_green");
+      }
+      previously_clicked = 0;
+      tip_amount.innerText = "$0.00"
+      bill_amount.innerText = "$0.00";
+      reset_btn.classList.remove("bg-clicked_green");
+      reset_btn.classList.add("bg-reset_bg");
+      reset_btn.classList.remove("hover:bg-hover_green")
+      
+    setTimeout(()=>{
+        reset_btn.classList.remove("bg-reset_bg");
+        reset_btn.classList.add("bg-clicked_green");
+        reset_btn.classList.add("hover:bg-hover_green")
+
+    }, 500);
+
+
+      
+    })
+
+
+
+
+
+    // checking the state of all inputs -> when they all have values, call the calculate function:
+
+    let bill_input = document.querySelector(".bill_input");
+    let bill = 0;
+    bill_input.addEventListener("input", ()=>{
+      bill = parseFloat(bill_input.value);
+      bill_input.classList.remove("text-text_green");
+      bill_input.classList.add("text-dark_green");
+    })
+
+    let people_input = document.querySelector(".people_input");
+    let people = 0;
+
+    let cant_be_zero = document.querySelector(".cant_be_zero");
+
+    people_input.addEventListener('input', ()=>{
+      people = parseInt(people_input.value);
+      people_input.classList.remove("text-text_green");
+      people_input.classList.add("text-dark_green");
+
+      if (people == 0){
+         people_input.parentElement.classList.add("border-2", "border-red-500");
+         people_input.parentElement.classList.remove("hover:border-clicked_green")
+         cant_be_zero.classList.remove("hidden");
+      } else{
+        people_input.parentElement.classList.remove("border-1", "border-red-500");
+        cant_be_zero.classList.add("hidden");
+        people_input.parentElement.classList.add("hover:border-clicked_green")
+         
+      }
+    })
+
+    
+
+   let inputs =  document.querySelectorAll(".inputs");
+
+   inputs.forEach((input)=>{
+       input.addEventListener('input', ()=>{
+
+        if ((bill && people && previously_clicked )){
+          calculate_and_display();
+        }
+
+       })
+   })
+
+
+
+    // calculations:
+
+    // get the bill:
+
+  
+
+   
+
+
+
+
+    function calculate_and_display(){
+   
+
+    // get the tip %:
+
+    console.log("bill = ", bill);
+
+    console.log(tip_percentage);
+    let tip;
+
+    if (previously_clicked.classList.contains("custom_btn")){
+       tip = custom_tip;
+    } else{
+      tip =  parseFloat(tip_percentage.replace('%', ''));
+    }
+     
+
+
+
+    tip/= 100;
+
+   
+
+    
+  
+
+    // calculating tip:
+    let total_tip = bill*tip;
+
+    // total/person:
+    let tip_by_each = total_tip/people;
+
+    let amount_by_each = bill/people;
+
+    let total_per_person = amount_by_each + tip_by_each;
+
+    total_per_person = Math.floor(total_per_person*100)/100;
+
+    tip_by_each = Math.floor(tip_by_each*100)/100;
+
+
+    // displaying the results:
+
+    
+    tip_amount.innerText = "$" + tip_by_each;
+    bill_amount.innerText = "$" + total_per_person;
+
+  }
+
+
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+
+  
+ 
+</body>
+</html>
